@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişi Kayıt</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p.success-message {
+            color: #28a745;
+            text-align: center;
+            margin-top: 10px;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #dff0d8;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/kaydet">
+        <h1>Kayıt Formu</h1>
+
+        <label for="ad">Ad:</label>
+        <input type="text" id="ad" name="ad" required>
+
+        <label for="soyad">Soyad:</label>
+        <input type="text" id="soyad" name="soyad" required>
+
+        <label for="yas">Yaş:</label>
+        <input type="number" id="yas" name="yas" required>
+
+        <button type="submit">Kişiyi Kaydet</button>
+    </form>
+    {% if message %}
+        <p class="success-message">{{ message }}</p>
+    {% endif %}
+</body>
+</html>
